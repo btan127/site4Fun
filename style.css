@@ -1,0 +1,291 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Light Mode Default */
+body {
+    background-color: #f4f4f4;
+    color: black;
+    overflow-x: hidden;
+    transition: background-color 0.3s, color 0.3s;
+    margin-top: 60px;
+    padding: 0;
+}
+
+/* Dark Mode */
+.dark-mode {
+    background-color: #121212;
+    color: white;
+}
+
+/* Full-Screen Background */
+.home-screen {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background: url('map.jpg') no-repeat center center/cover;
+    overflow: hidden;
+}
+
+/* Navbar */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 60px;
+    background-color: #ff0000;
+    padding: 15px 0;
+    text-align: center;
+    z-index: 1000;
+}
+
+.navbar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar ul li {
+    margin: 0 15px;
+}
+
+.navbar ul li a, .navbar ul li button {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    transition: color 0.3s ease;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.navbar ul li a:hover, .navbar ul li button:hover {
+    color: #ffd700;
+}
+
+/* Mobile Navigation (Hamburger Menu) */
+.menu-toggle {
+    display: none;
+    cursor: pointer;
+    font-size: 25px;
+    color: white;
+    background: none;
+    border: none;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+}
+
+.nav-links {
+    display: flex;
+}
+
+@media (max-width: 768px) {
+    .navbar ul {
+        display: none;
+        flex-direction: column;
+        background: #ff0000;
+        position: absolute;
+        /*top: 50px;*/
+        width: 100%;
+        height: 60px;
+        left: 0;
+        text-align: center;
+        padding: 15px 0;
+    }
+
+    .navbar ul.show {
+        display: flex;
+    }
+
+    /*.menu-toggle {
+        display: none;
+    }*/
+}
+
+/* Sticky Profile Picture */
+.profile-container {
+    position: sticky;
+    top: 80px;
+    left: 60px;
+}
+
+.profile-pic {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 4px solid black;
+    transition: 0.3s ease-in-out;
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.6);
+}
+
+.profile-pic:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 25px rgba(255, 0, 0, 1);
+}
+
+/* Responsive Profile */
+@media (max-width: 768px) {
+    .profile-container {
+        left: 50%;
+        transform: translateX(-50%);
+        top: 100px;
+    }
+
+    .profile-pic {
+        width: 120px;
+        height: 120px;
+    }
+}
+
+/* Popup Contact Modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 2000;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.modal-content {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 600px;
+    text-align: left;
+}
+
+.modal p {
+    margin-bottom: 15px !important;
+}
+
+.modal-content p {
+    display: block; /* Ensures paragraphs behave correctly */
+    margin-bottom: 15px !important; /* Ensures spacing applies */
+    line-height: 1.6; /* Improves readability */
+    color: black;
+}
+
+/*.modal-content p {
+    margin-bottom: 40px; /* Adjust the value to control spacing */
+    /*line-height: 1.6; /* Improves readability */
+/*}*/
+
+/*<!--.modal-content div {
+    margin-bottom: 15px;
+}
+
+.modal-content h2 {
+    margin-bottom: 50px;
+}*/
+
+.close-btn {
+    background-color: #ff0000;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.close-btn:hover {
+    background-color: #cc0000;
+}
+
+/* Main Content */
+.content {
+    margin-top: 150px;
+    padding: 20px;
+    max-width: 800px; /* Ensures uniform width */
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left; /* Aligns text to the left within sections */
+}
+
+/* Additional Sections for Scrolling */
+.section {
+    padding: 50px;
+    max-width: 800px; /* Keeps width consistent */
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left; /* Keeps text readability similar to your reference */
+}
+
+.light-mode .section {
+    border-bottom: 1px solid #ccc;
+}
+
+.project {
+border: 1px solid #ccc;
+padding: 15px;
+margin: 20px auto;
+border-radius: 10px;
+box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+max-width: 800px; /* Matches other sections */
+    text-align: left; /* Keeps content structured like a job description */
+}
+
+.project h3 {
+margin-top: 0;
+}
+
+.project video, .project img {
+display: block;
+margin-top: 10px;
+}
+
+
+
+.footer {
+background-color: #212121;
+color: #f1f1f1;
+padding: 30px;
+text-align: center;
+border-top: 3px solid #d32f2f;
+margin-top: 40px;
+}
+
+.footer-content {
+max-width: 800px;
+margin: 0 auto;
+}
+
+.footer h2 {
+font-size: 1.5rem;
+margin-bottom: 10px;
+}
+
+.footer p {
+font-size: 1rem;
+margin-bottom: 20px;
+}
+
+.social-links {
+display: flex;
+justify-content: center;
+gap: 20px;
+}
+
+.social-icon {
+text-decoration: none;
+color: #d32f2f;
+font-weight: bold;
+transition: color 0.3s ease-in-out;
+}
+
+.social-icon:hover {
+color: #ff5722;
+}

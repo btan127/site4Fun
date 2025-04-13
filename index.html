@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Website</title>
+    <link rel = "stylesheet" href = "style.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+        <ul class="nav-links">
+            <li><a href="#" onclick="openModal('about')">About</a></li>
+            <li><a href="#" onclick="openModal('contact')">Contact</a></li>
+            <!--<li><a href="gallery.html">Gallery</a></li>-->
+            <li><button class="toggle-btn" onclick="toggleMode()">Switch Mode</button></li>
+        </ul>
+    </div>
+
+    <!-- Profile Picture -->
+    <!--<div class="profile-container">
+        <img src="me.jpg" alt="My Profile Picture" class="profile-pic">
+    </div>-->
+
+    <!-- About Modal -->
+    <div class="modal" id="aboutModal" >
+        <div class="modal-content" style="margin-bottom: 15px">
+            <h2>About Me</h2>
+            <p>Hi, I’m Tan Bo Sheng, a Materials Engineering student at Nanyang Technological University (NTU), Singapore. </p>
+        <p>I’m passionate about exploring the intersection between engineering, data analytics, and technology to solve real-world challenges.</p>
+        <p>Currently, I’m honing my skills in programming, data analysis, and artificial intelligence, with the goal of applying these abilities to both engineering and data-driven industries. </p>
+        <p>My academic journey has given me hands-on experience with tools like MySQL, SolidWorks 2024, and data analysis, while my work on school projects has deepened my research, problem-solving, and technical skills.</p>
+        <p>Beyond academics, I’ve contributed to various roles in my school’s MSE Club, managing logistics, digital media outreach, and publicity sparately in each Academic Year.</p>
+        <p>Other than my school club I am also part of NTU Student Union as a Strategy Officer under the Strategy Office committee</p>
+        <p>Where I worked on a report and analyzed events to recommend strategies and KPI's that Student Union can implement in the future to enagage students better.</p>
+        <p></p>
+        <p>Personally I am always eager to learn new skills, take on fresh challenges, and connect with like-minded individuals.</p>
+        <p>My primary interest lies in data analytics, where I aim to uncover meaningful insights and drive data-driven decision-making across industries.</p>
+        <p>Whether it’s through analyzing complex datasets, developing AI-powered solutions, or applying engineering principles to real-world problems</p>
+        <p>I’m committed to using data as a tool for innovation and impactful change.</p>
+            <button class="close-btn" onclick="closeModal('about')">Close</button>
+        </div>
+    </div>
+
+    <!-- Contact Modal -->
+    <div class="modal" id="contactModal" style="color: black">
+        <div class="modal-content">
+            <h2>Contact Me</h2>
+            <p>You can reach me via email at bosheng1229@gmail.com</p>
+            <p>Alternatively You can reach me via <a href="http://linkedin.com/in/tanbosheng" class="social-icon">LinkedIn</a></p>
+            <p> or you can also check my <a href="https://github.com/btan127" class="social-icon">Git Hub</a></p>
+            <button class="close-btn" onclick="closeModal('contact')">Close</button>
+        </div>
+    </div>
+
+    <div class="modal" id="codeModal">
+        <div class="modal-content" style="max-height: 80vh; overflow-y: auto; padding: 20px; box-sizing: border-box;">
+            <p>SELECT</p>
+                <p>Reviews,</p>
+                <p>CASE</p>
+                <p> WHEN Reviews LIKE '%worst%' </p>
+                <p> or Reviews LIKE '%disappoint%' </p>
+                <p> or Reviews LIKE '%bad%' </p>
+                <p> or Reviews LIKE '%Terrible%' </p>
+                <p> or Reviews LIKE '%poor%'  THEN 'B' -- bad satisfaction</p>
+                <p> WHEN Reviews LIKE '%good%' </p>
+                <p> or Reviews LIKE '%nice%' THEN 'G' -- good satisfaction</p>
+                <p> ELSE 'N' -- neutral</p>
+                <p> END AS satisfaction_tag,</p>
+                <p> CASE</p>
+                <p> WHEN Reviews LIKE '%attentive%' </p>
+                <p> or Reviews LIKE '%helpful%' </p>
+                <p> or Reviews LIKE '%excellent%' </p>
+                <p> or Reviews LIKE '%comfortable%' </p>
+                <p> or Reviews LIKE '%pleasant%' THEN 'H' -- good service</p>
+                <p> WHEN Reviews LIKE '%late%' or Reviews LIKE '%cancel%' or Reviews LIKE '%uncomfortable%' or Reviews LIKE '%chaotic%' THEN 'L' -- Low service quality</p>
+                <p> ELSE 'M' -- neutral</p>
+                <p> END AS service_tag,</p>
+                <p> CASE</p>
+                <p> WHEN Reviews LIKE '%nice%' or Reviews LIKE '%amazing%' or Reviews LIKE '%good%' or Reviews LIKE '%happy%' THEN 'H' -- positive response</p>
+                <p> WHEN Reviews LIKE '%disappoin%' or Reviews LIKE '%sad%' THEN 'S' -- negative response</p>
+                <p> ELSE 'R' -- general</p>
+                <p> END AS emotional_tag,</p>
+                <p> CASE</p>
+                <p> WHEN Reviews LIKE '%turbule%' or Reviews LIKE '%injur%' or Reviews Like "%delayed flight%" THEN 'A' -- critical issue exist</p>
+                <p> ELSE 'X' -- no critical issue</p>
+                <p> END AS critical_Issues_tag</p>
+                <p> FROM airlines_reviews</p>
+                <p> WHERE Airline = "Singapore Airlines";</p>
+            
+            </p>
+
+            <button class="close-btn" onclick="closeModal('code')">Close</button>
+        </div>
+
+    </div>
+
+    <!-- Main Content -->
+    <div class="section">
+        <h1>Welcome to My Personal Website</h1>
+        <p>This is a simple website with responsive design.</p>
+    </div>
+
+    <!-- Extra Sections for Scrolling -->
+    <div class="section">
+        <h2>Summary</h2>
+        <p>Hi, I’m Tan Bo Sheng, a Materials Engineering student at NTU, Singapore, passionate about data analytics and its potential to solve real-world challenges.</p>
+        <p>I’m developing skills in programming, data analysis, and AI to bridge the gap between engineering and data-driven solutions. </p>
+        <p>My experiences with tools like MySQL and SolidWorks 2024, along with roles in the MSE Club and as a Strategy Officer for the NTU Student Union, 
+        have strengthened my problem-solving and strategic thinking abilities.</p>
+        <p>I aim to leverage data to uncover insights, drive smarter decisions, and create meaningful innovations across industries.</p>
+
+<!-- Hi, I’m Tan Bo Sheng, a Materials Engineering student at NTU, Singapore, passionate about data analytics and its potential to solve real-world challenges.
+
+I’m developing skills in programming, data analysis, and AI to bridge the gap between engineering and data-driven solutions. 
+My experiences with tools like MySQL and SolidWorks 2024, along with roles in the MSE Club and as a Strategy Officer for the NTU Student Union, 
+have strengthened my problem-solving and strategic thinking abilities.
+
+I aim to leverage data to uncover insights, drive smarter decisions, and create meaningful innovations across industries. -->
+    </div>
+
+    <div class="section">
+    <h2>Projects</h2>
+    <p>Here are some of my projects that I've worked on.</p>
+
+    <!-- Project 1 -->
+    <div class="project">
+        <h3>Project 1: Proposing a chatbot design as part of a group project</h3>
+        <p>In this video taken from my project submission of my course "Designing & Developing Databases"</p>
+        <p> I proposed a chatbot design idea with the purpose of handling exceptional case in which was described as turbulence compensation cases by our project question.</p>
+        <p>This video briefly describes the process of design and the assumptions made to maximise likelihood of ensuring customer satisfaction and experience.</p>
+        <p>This is to not only show how I approach such an abstract question but also show my analysis and problem solving skill</p>
+        <video width="320" height="240" controls>
+            <source src="vid.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <p>Click <a onclick="openModal('code')" style="cursor: pointer; transition: color 0.3s ease-in-out; font-weight: bold; text-decoration: underline;"> Here</a> to see the SQL code of it</p>
+        <p style="margin-top: 20px; font-weight: bold; font-size: 10px;">Note: The original video snippet from the submission is used for authenticity purpose</p>
+        <!--<img src="path/to/hackathon_project_image.jpg" alt="Hackathon App Screenshot" width="320" height="240">-->
+    </div>
+
+    <!-- Project 2 -->
+    <div class="project">
+        <h3>Project 2: EV Drive Simulator</h3>
+        <p>Check out the linkedIn post made by my previous institution.<a href = "https://www.linkedin.com/feed/update/urn:li:activity:6970543893696172032?utm_source=share&utm_medium=member_desktop&rcm=ACoAADc7-HMB1mTM7rE1DhiWei_PrrC0eaLlFaw"> LinkedIn Post</a></p>
+        <!--<video width="320" height="240" controls>
+            <source src="path/to/blockchain_project_video.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>-->
+        <!--<img src="path/to/blockchain_project_image.jpg" alt="Blockchain Project Screenshot" width="320" height="240">-->
+        
+    </div>
+
+    <div class="project">
+        <h3>Project 2: "Whats next"</h3>
+        <p>Stay tuned to find out.</p>
+        <!--<video width="320" height="240" controls>
+            <source src="path/to/blockchain_project_video.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>-->
+        <!--<img src="path/to/blockchain_project_image.jpg" alt="Blockchain Project Screenshot" width="320" height="240">-->
+        
+    </div>
+</div>
+
+    
+
+    <footer class="footer">
+    <div class="footer-content">
+        <h2>Contact</h2>
+        <p>Feel free to reach out to me through my social media or email.</p>
+        <div class="social-links">
+            <a href="http://linkedin.com/in/tanbosheng" class="social-icon">LinkedIn</a>
+            <p style = "color: red">Email: bosheng1229@gmail.com</p>
+        </div>
+    </div>
+</footer>
+
+    <script src="main.js"></script>
+
+</body>
+</html>
