@@ -276,11 +276,53 @@ color: #ff5722;
     padding-bottom: 5px;
 }
 
+/*.cert-list {
+    list-style: disc inside;
+    padding-left: 15px;
+    line-height: 1.7;
+}*/
+
+
 .cert-list {
     list-style: disc inside;
     padding-left: 15px;
     line-height: 1.7;
 }
+
+.toggle-buttons {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.toggle-buttons button {
+    background-color: transparent;
+    color: #fff;
+    border: 1px solid #888;
+    padding: 5px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.toggle-buttons button.active,
+.toggle-buttons button:hover {
+    background-color: #888;
+    color: #222;
+    font-weight: bold;
+}
+
+.toggle-content {
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+
+
 
 .project-cards {
     display: flex;
@@ -364,13 +406,30 @@ color: #ff5722;
         </section>
 
         <section class="about-section">
-            <h2 class="section-title">Certifications</h2>
-            <ul class="cert-list">
-                <li>Google Data Analytics Professional Certificate</li>
-                <li>SQL for Data Science – Coursera</li>
-                <li>AI For Everyone – Andrew Ng</li>
-            </ul>
-        </section>
+    <h2 class="section-title">Achievements</h2>
+    
+    <div class="toggle-buttons">
+        <button onclick="showTab('certifications')" class="active">Certifications</button>
+        <button onclick="showTab('awards')">Awards</button>
+    </div>
+
+    <div id="certifications" class="toggle-content">
+        <ul class="cert-list">
+            <li>Advance Data Analytics, Coursera | Google</li>
+            <li>AI Essentials, Coursera | Google</li>
+            <li>Business Intelligence, Coursera | Google</li>
+            <li>Google IT Automation with Python Professional Certificate, Coursera | Google</li>
+            <li>Google Project Management, Coursera | Google</li>
+        </ul>
+    </div>
+
+    <div id="awards" class="toggle-content" style="display: none;">
+        <ul class="cert-list">
+            <li>Huawei Tech4Good 2022 Global Competition Top 10 Finalist (September 2022)</li>
+            <li>WorldQuant Brain Championship Stage 1 – 2025 | Top 20% of teams globally (May 2025)</li>
+        </ul>
+    </div>
+</section>
 
         <section class="about-section">
             <h2 class="section-title">Projects</h2>
@@ -421,6 +480,27 @@ color: #ff5722;
       }, 300);
     });
   });
+
+
+
+
+  /* Selection card*/
+
+  function showTab(tabId) {
+    const sections = document.querySelectorAll('.toggle-content');
+    const buttons = document.querySelectorAll('.toggle-buttons button');
+
+    sections.forEach(section => {
+        section.style.display = 'none';
+    });
+
+    buttons.forEach(button => {
+        button.classList.remove('active');
+    });
+
+    document.getElementById(tabId).style.display = 'block';
+    event.target.classList.add('active');
+}
     </script>
 </body>
 </html>
