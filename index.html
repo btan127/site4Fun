@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Responsive Navbar with Footer (No Hamburger)</title>
+    <title>WhiteHouse-Style Layout</title>
     <style>
-        /* Reset default margins */
         * {
             margin: 0;
             padding: 0;
@@ -18,94 +17,186 @@
             min-height: 100vh;
             display: flex;
             flex-direction: column;
+            background-color: #2C2A4A;
+            /*background-color: 	#34495E;*/
+            /*background-color: #334756;*/
         }
 
-        /* Navbar Styles */
+        /* Sticky Navbar */
         .navbar {
             position: sticky;
             top: 0;
             width: 100%;
-            background-color: #333;
+            background-color: #212121;
+            /*background-color: #1a1a2e;*/
             color: #fff;
             display: flex;
-            flex-wrap: wrap;
             justify-content: space-between;
             align-items: center;
-            padding: 10px 20px;
+            padding: 15px 25px;
             z-index: 1000;
         }
 
         .navbar .logo {
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             font-weight: bold;
-            margin-right: auto;
         }
 
-        .navbar ul {
-            list-style: none;
-            display: flex;
-            flex-wrap: wrap;
-        }
-
-        .navbar ul li {
-            position: relative;
-        }
-
-        .navbar ul li a {
-            text-decoration: none;
+        .navbar .menu-btn {
+            font-size: 1.6rem;
+            cursor: pointer;
+            border: none;
+            background: none;
             color: #fff;
-            padding: 10px 15px;
-            display: block;
         }
 
-        .navbar ul li:hover {
-            background-color: #575757;
-        }
-
-        /* Dropdown Styles */
-        .navbar ul li .dropdown {
-            display: none;
-            position: absolute;
-            background-color: #444;
-            top: 100%;
+        /* Fullscreen Curtain Menu */
+        .curtain-menu {
+            position: fixed;
+            top: 0;
             left: 0;
-            min-width: 150px;
+            height: 100%;
+            width: 100%;
+            background-color: #1a1a2e;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transform: translateY(-100%);
+            transition: transform 0.4s ease-in-out;
             z-index: 999;
         }
 
-        .navbar ul li:hover .dropdown {
-            display: block;
+        .curtain-menu.show {
+            transform: translateY(0);
         }
 
-        .navbar ul li .dropdown a {
-            padding: 10px 15px;
+        .curtain-menu a {
+            color: #fff;
+            font-size: 1.8rem;
+            margin: 15px 0;
+            text-decoration: none;
+            transition: color 0.3s;
         }
 
-        /* Responsive Behavior Without Hamburger */
-        @media (max-width: 768px) {
-            .navbar {
-                flex-direction: column;
-                align-items: flex-start;
-            }
+        .curtain-menu a:hover {
+            color: #f0f0f0;
+        }
 
-            .navbar ul {
-                flex-direction: column;
-                width: 100%;
-            }
-
-            .navbar ul li {
-                width: 100%;
-            }
+        .curtain-menu .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 2rem;
+            cursor: pointer;
         }
 
         /* Main Content */
-        main {
-            flex: 1;
-            padding: 20px;
-        }
+   /*   main {
+    flex: 1;
+}*/
 
-        /* Footer Styles */
-        .footer {
+.hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100vh;
+    /*background: linear-gradient(135deg, #2c2f5b, #2C2A4A);*/
+    background-color: #2C2A4A;
+    color: #ffffff;
+}
+
+.hero-content {
+    max-width: 800px;
+    padding: 20px;
+}
+
+.profile-pic {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px #5f4b8b,   /* deep violet inner glow */
+                0 0 20px #6f42c1,   /* mid glow */
+                0 0 40px #7a5eff,   /* stronger glow */
+                0 0 80px #8ab6ff;   /* soft blue haze */
+    transition: box-shadow 0.3s ease;
+}
+
+h1 {
+    font-size: 2.8em;
+    margin: 0;
+}
+
+h1 .highlight {
+    color: #ffcc00; /* Accent color for your name */
+}
+
+h2 {
+    font-size: 1.5em;
+    font-weight: 300;
+    margin-top: 10px;
+}
+
+p {
+    margin-top: 15px;
+    font-size: 1.1em;
+    color: #cccccc;
+}
+
+.buttons {
+    margin-top: 25px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    margin: 0 10px;
+    color: #ffffff;
+    background-color: #ffcc00;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #e6b800;
+}
+
+.btn.secondary {
+    background-color: transparent;
+    border: 2px solid #ffcc00;
+}
+
+.btn.secondary:hover {
+    background-color: #ffcc00;
+    color: #1e2240;
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 30px;
+    font-size: 2em;
+    animation: bounce 2s infinite;
+    cursor: pointer;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+    40% {transform: translateY(10px);}
+    60% {transform: translateY(5px);}
+}
+
+        /* Main content ends */
+
+
+
+        /* Footer */
+.footer {
 background-color: #212121;
 color: #f1f1f1;
 padding: 30px;
@@ -130,9 +221,10 @@ margin-bottom: 20px;
 }
 
 .social-links {
-display: flex;
-justify-content: center;
-gap: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Add this */
+    gap: 20px; /* Optional spacing between them */
 }
 
 .social-icon {
@@ -145,35 +237,156 @@ transition: color 0.3s ease-in-out;
 .social-icon:hover {
 color: #ff5722;
 }
+        /*Footer end*/
 
+        @media (max-width: 768px) {
+            .navbar .logo {
+                font-size: 1.4rem;
+            }
+            .curtain-menu a {
+                font-size: 1.5rem;
+            }
+            main h1 {
+                font-size: 2.2rem;
+            }
+        }
+
+
+
+
+    /*body section*/
+
+    .about-section {
+    max-width: 800px;
+    margin: 60px auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.02); /* transparent box */
+    border-left: 3px solid #7a5eff;
+    border-radius: 12px;
+    color: #f0f0f0;
+    box-shadow: 0 0 20px rgba(122, 94, 255, 0.2);
+}
+
+.section-title {
+    font-size: 28px;
+    margin-bottom: 10px;
+    color: #cfcfff;
+    border-bottom: 2px solid #7a5eff;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+.cert-list {
+    list-style: disc inside;
+    padding-left: 15px;
+    line-height: 1.7;
+}
+
+.project-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.project-card {
+    background: rgba(255, 255, 255, 0.04);
+    padding: 15px 20px;
+    border-radius: 10px;
+    border: 1px solid #7a5eff33;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 15px #7a5eff88;
+}
+
+.project-card h3 {
+    margin-bottom: 8px;
+    color: #ffffff;
+}
+
+.project-card p {
+    color: #cccccc;
+}
+
+    /*body section*/
     </style>
 </head>
 <body>
     <!-- Navbar -->
     <nav class="navbar">
-        <div class="logo">MySite</div>
-        <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li>
-                <a href="#">Services ▾</a>
-                <div class="dropdown">
-                    <a href="#">Web Design</a>
-                    <a href="#">Development</a>
-                    <a href="#">SEO</a>
-                </div>
-            </li>
-            <li><a href="#">Contact</a></li>
-        </ul>
+        <div class="logo">BS</div>
+        <button class="menu-btn" onclick="toggleMenu()">☰</button>
     </nav>
+
+    <!-- Curtain Menu -->
+    <div class="curtain-menu" id="curtainMenu">
+        <span class="close-btn" onclick="toggleMenu()">×</span>
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#">Portfolio</a>
+        <a href="#">Contact</a>
+    </div>
 
     <!-- Main Content -->
     <main>
-        <h1>Welcome to MySite</h1>
-        <p>This is a responsive template with a sticky navbar and footer.</p>
-        <p>Scroll down to see the sticky navbar in action!</p>
-        <div style="height: 1500px;"></div>
-    </main>
+    <section class="hero">
+    <div class="hero-content">
+        <!-- Profile picture -->
+        <img src="profilePlaceholder.png" alt="Your Name" class="profile-pic">
+
+        <!-- Intro text -->
+        <h1>Hello, I’m <span class="highlight">Your Name</span></h1>
+        <h2>Data Analyst & Materials Engineer</h2>
+        <p>Turning data into insights & materials into innovations.</p>
+
+        <!-- Buttons -->
+        <div class="buttons">
+            <a href="#projects" class="btn">View Projects</a>
+            <a href="#contact" class="btn secondary">Contact Me</a>
+        </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="scroll-indicator">
+        <span>&#8595;</span>
+    </div>
+</section>
+
+            <section class="about-section">
+            <h2 class="section-title">Introduction</h2>
+            <p>
+                Hi, I’m Tan Bo Sheng, a Materials Engineering student at Nanyang Technological University (NTU), Singapore. <br>
+                I’m passionate about exploring the intersection between engineering, data analytics, and technology to solve real-world challenges.
+            </p>
+        </section>
+
+        <section class="about-section">
+            <h2 class="section-title">Certifications</h2>
+            <ul class="cert-list">
+                <li>Google Data Analytics Professional Certificate</li>
+                <li>SQL for Data Science – Coursera</li>
+                <li>AI For Everyone – Andrew Ng</li>
+            </ul>
+        </section>
+
+        <section class="about-section">
+            <h2 class="section-title">Projects</h2>
+            <div class="project-cards">
+                <div class="project-card">
+                    <h3>AI Resume Analyzer</h3>
+                    <p>Built a tool using Python and NLP that evaluates resumes against job descriptions.</p>
+                </div>
+                <div class="project-card">
+                    <h3>Machine Learning for Image Classification</h3>
+                    <p>Implemented ResNet50 to classify images with transfer learning, achieving 70% test accuracy.</p>
+                </div>
+            </div>
+        </section>
+</main>
+
 
     <!-- Footer -->
     <footer class="footer">
@@ -182,9 +395,31 @@ color: #ff5722;
         <p>Feel free to reach out to me through my social media or email.</p>
         <div class="social-links">
             <a href="http://linkedin.com/in/tanbosheng" class="social-icon">LinkedIn</a>
-            <p style = "color: red">Email: bosheng1229@gmail.com</p>
+            <span style = "color: red">Email: bosheng1229@gmail.com</span>
         </div>
     </div>
     </footer>
+
+    <script>
+        function toggleMenu() {
+            const curtainMenu = document.getElementById('curtainMenu');
+            curtainMenu.classList.toggle('show');
+        }
+
+
+
+        document.addEventListener("DOMContentLoaded", () => {
+    const sections = document.querySelectorAll(".about-section, .project-card");
+    sections.forEach(sec => {
+      sec.style.opacity = 0;
+      sec.style.transform = "translateY(20px)";
+      setTimeout(() => {
+        sec.style.transition = "all 0.6s ease";
+        sec.style.opacity = 1;
+        sec.style.transform = "translateY(0)";
+      }, 300);
+    });
+  });
+    </script>
 </body>
 </html>
